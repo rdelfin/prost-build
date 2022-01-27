@@ -191,6 +191,10 @@ impl<'a> CodeGenerator<'a> {
         self.buf.push_str(&self.package);
         self.buf.push_str("\")]\n");
         self.push_indent();
+        self.buf.push_str("#[prost(source_name=\"");
+        self.buf.push_str(&message_name);
+        self.buf.push_str("\")]\n");
+        self.push_indent();
         self.buf.push_str("pub struct ");
         self.buf.push_str(&to_upper_camel(&message_name));
         self.buf.push_str(" {\n");
